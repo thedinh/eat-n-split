@@ -1,3 +1,6 @@
+import Navbar from "./navbar";
+import FormSplitBill from "./FormSplitBill";
+
 const initialFriends = [
   {
     id: 118836,
@@ -20,6 +23,9 @@ const initialFriends = [
 ];
 
 export default function App() {
-  return <h1>Hello World!</h1>
+  return <div className="app">
+  <Navbar DataFriend={initialFriends}/>
+  <FormSplitBill/>
+  </div>
 };
 
