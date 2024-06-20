@@ -1,11 +1,17 @@
-export default function FormAddNewFriend() {
-    return <div>
+import Button from "./Button";
+
+export default function FormAddNewFriend(NewFriend, onHandleNewFriend) {
+    function AddNewFriend() {
+
+    }
+
+    return (
         <form className="form-add-friend">
             <label>🧑‍🤝‍🧑Friend Name</label>
             <input type="text" />
             <label>🖼️Image URl</label>
-            <input type="text" value="https://i.pravatar.cc/48" />
-            <button className="button">Add</button>
+            <input type="text" />
+            <Button onClick={AddNewFriend}>Add</Button>
         </form>
-    </div>
+    )
 }

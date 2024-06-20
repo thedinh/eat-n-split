@@ -1,16 +1,15 @@
 import ListFriend from "./ListFriend";
 import FormAddNewFriend from "./FormAddNewFriend";
+import Button from "./Button";
 
-export default function navbar({ DataFriend }) {
+export default function navbar({ DataFriend, ShowAddFriend, OnHandleShowAddFriend, NewFriend, onHandleNewFriend }) {
+    function ShowFormAddFriend() {
+        OnHandleShowAddFriend(show => !show);
+    }
 
     return <div className="sidebar">
         <ListFriend dataFriend={DataFriend} />
-        <FormAddNewFriend />
-        <Close />
+        {ShowAddFriend && <FormAddNewFriend NewFriend={NewFriend} onHandleNewFriend={onHandleNewFriend} />}
+        <Button onClick={ShowFormAddFriend}>{ShowAddFriend ? "Close" : "Add Friend"}</Button>
     </div>
-
-}
-
-function Close() {
-    return <button className="button">close</button>
 }

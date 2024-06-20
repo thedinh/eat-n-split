@@ -1,5 +1,7 @@
+import Button from "./Button";
+
 export default function FormSplitBill() {
-    return <div>
+    return (
 
         <form className="form-split-bill">
             <h2>slipt a bill with FriendName</h2>
@@ -11,12 +13,11 @@ export default function FormSplitBill() {
             <input type="text" readOnly value="" />
             <label>🖼️Your expense</label>
             <select>
-                <option>You</option>
-                <option>friendName</option>
+                <option value="you">You</option>
+                <option value="friend">friendName</option>
             </select>
-            <button className="button">Spilt bill</button>
+            <Button>Select</Button>
         </form>
-    </div>
-
+    )
 }
 

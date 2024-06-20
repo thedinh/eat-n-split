@@ -1,6 +1,6 @@
 import Navbar from "./navbar";
 import FormSplitBill from "./FormSplitBill";
-
+import { useState } from "react";
 const initialFriends = [
   {
     id: 118836,
@@ -23,9 +23,11 @@ const initialFriends = [
 ];
 
 export default function App() {
+  const [ShowAddFriend, setShowAddFriend] = useState(false);
+  const [NewFriend, setNewFriend] = useState([...initialFriends]);
   return <div className="app">
-  <Navbar DataFriend={initialFriends}/>
-  <FormSplitBill/>
+    <Navbar DataFriend={initialFriends} ShowAddFriend={ShowAddFriend} OnHandleShowAddFriend={setShowAddFriend} NewFriend={NewFriend} onHandleNewFriend={setNewFriend} />
+    <FormSplitBill />
   </div>
 };
 
