@@ -24,9 +24,20 @@ const initialFriends = [
 
 export default function App() {
   const [ShowAddFriend, setShowAddFriend] = useState(false);
-  const [NewFriend, setNewFriend] = useState([...initialFriends]);
+  const [NewFriend, setNewFriend] = useState(initialFriends);
+  const [Image, SetImage] = useState("https://i.pravatar.cc/48");
+  const [FriendName, SetFriendName] = useState("");
   return <div className="app">
-    <Navbar DataFriend={initialFriends} ShowAddFriend={ShowAddFriend} OnHandleShowAddFriend={setShowAddFriend} NewFriend={NewFriend} onHandleNewFriend={setNewFriend} />
+    <Navbar
+      ShowAddFriend={ShowAddFriend}
+      OnHandleShowAddFriend={setShowAddFriend}
+      NewFriend={NewFriend}
+      onHandleNewFriend={setNewFriend}
+      Image={Image}
+      FriendName={FriendName}
+      OnHandleFriendName={SetFriendName}
+      OnHandleSetImage={SetImage}
+    />
     <FormSplitBill />
   </div>
 };

@@ -1,7 +1,7 @@
 import Button from "./Button";
-export default function Friend({ FriendName, image, balance }) {
+export default function Friend({ FriendName, Image, balance }) {
     return <li>
-        <img src={`${image}`} alt="PersonImage" />
+        <img src={`${Image}`} alt="PersonImage" />
         <h3>
             {FriendName}
         </h3>

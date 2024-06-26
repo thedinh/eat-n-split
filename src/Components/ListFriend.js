@@ -1,9 +1,9 @@
 import Friend from "./Friend"
 
-export default function ListFriend({ dataFriend }) {
+export default function ListFriend({ Friends }) {
     return <div>
         <ul>
-            {dataFriend.map((el) => <Friend FriendName={el.name} image={el.image} balance={el.balance} key={el.id} />)}
+            {Friends.map((el) => <Friend FriendName={el.name} Image={el.image} balance={el.balance} key={el.id} />)}
         </ul>
     </div>
 }
