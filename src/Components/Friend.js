@@ -1,19 +1,22 @@
 import Button from "./Button";
-export default function Friend({ FriendName, Image, balance }) {
+export default function Friend({ data, ShowShareBill, OnHandleShowShareBill }) {
+    function SelectedFriend() {
+        OnHandleShowShareBill(show => !show);
+    }
     return <li>
-        <img src={`${Image}`} alt="PersonImage" />
+        <img src={`${data.Image}`} alt="PersonImage" />
         <h3>
-            {FriendName}
+            {data.FriendName}
         </h3>
         {
-            balance < 0 && <p className="red">You owe {FriendName} {Math.abs(balance)}$</p>
+            data.balance < 0 && <p className="red">You owe {data.FriendName} {Math.abs(data.balance)}$</p>
         }
         {
-            balance > 0 && <p className="green">{FriendName}owe you {Math.abs(balance)}$</p>
+            data.balance > 0 && <p className="green">{data.FriendName}owe you {Math.abs(data.balance)}$</p>
         }
         {
-            balance === 0 && <p>you and {FriendName} are even </p>
+            data.balance === 0 && <p>you and {data.FriendName} are even </p>
         }
-        <Button>Select</Button>
+        <Button onClick={SelectedFriend}>{ShowShareBill ? `selected` : `select`}</Button>
     </li>
 }

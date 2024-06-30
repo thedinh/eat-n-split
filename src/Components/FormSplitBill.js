@@ -2,7 +2,6 @@ import Button from "./Button";
 
 export default function FormSplitBill() {
     return (
-
         <form className="form-split-bill">
             <h2>slipt a bill with FriendName</h2>
             <label>🧑‍🤝‍🧑Bill value</label>
