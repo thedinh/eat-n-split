@@ -24,7 +24,7 @@ const initialFriends = [
 
 export default function App() {
   const [ShowAddFriend, setShowAddFriend] = useState(false);
-  const [ShowShareBill, SetShowShareBill] = useState(false);
+  const [SelectedFriend, SetSelectedFriend] = useState(null);
   const [NewFriend, setNewFriend] = useState(initialFriends);
   const [Image, SetImage] = useState("https://i.pravatar.cc/48");
   const [FriendName, SetFriendName] = useState("");
@@ -38,10 +38,10 @@ export default function App() {
       FriendName={FriendName}
       OnHandleFriendName={SetFriendName}
       OnHandleSetImage={SetImage}
-      ShowShareBill={ShowShareBill}
-      OnHandleShowShareBill={SetShowShareBill}
+      SelectedFriend={SelectedFriend}
+      OnHandleSelectedFriend={SetSelectedFriend}
     />
-    <FormSplitBill />
+    {SelectedFriend && <FormSplitBill SelectedFriend={SelectedFriend} />}
   </div>
 };
 

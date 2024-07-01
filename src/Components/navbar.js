@@ -12,8 +12,8 @@ export default function navbar(
         OnHandleSetImage,
         FriendName,
         OnHandleFriendName,
-        ShowShareBill,
-        OnHandleShowShareBill
+        SelectedFriend,
+        OnHandleSelectedFriend
 
     }) {
     function ShowFormAddFriend() {
@@ -23,15 +23,14 @@ export default function navbar(
         onHandleNewFriend((Friends) => {
             return [...Friends, Friend]
         })
-
-
     }
     return <div className="sidebar">
 
         <ListFriend
             FriendSData={NewFriend}
-            ShowShareBill={ShowShareBill}
-            OnHandleShowShareBill={OnHandleShowShareBill}
+            SelectedFriend={SelectedFriend}
+            OnHandleSelectedFriend={OnHandleSelectedFriend}
+            OnHandleShowAddFriend={OnHandleShowAddFriend}
         />
         {ShowAddFriend && <FormAddNewFriend
             NewFriend={NewFriend}

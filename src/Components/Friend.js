@@ -1,9 +1,14 @@
 import Button from "./Button";
-export default function Friend({ data, ShowShareBill, OnHandleShowShareBill }) {
-    function SelectedFriend() {
-        OnHandleShowShareBill(show => !show);
+export default function Friend({ data, SelectedFriend, OnHandleSelectedFriend, OnHandleShowAddFriend }) {
+    function HandleSelectedFriend(Friend) {
+        OnHandleSelectedFriend((cur) => cur?.id === Friend?.id ? null : Friend);
+        OnHandleShowAddFriend(false);
     }
-    return <li>
+
+    const isSelected = SelectedFriend?.id === data?.id;
+    // Phan can xem xet lai sau khi du an xong SelectedFriend?.id === data?.id;
+
+    return <li className={isSelected ? `selected` : ""}>
         <img src={`${data.Image}`} alt="PersonImage" />
         <h3>
             {data.FriendName}
@@ -17,6 +22,6 @@ export default function Friend({ data, ShowShareBill, OnHandleShowShareBill }) {
         {
             data.balance === 0 && <p>you and {data.FriendName} are even </p>
         }
-        <Button onClick={SelectedFriend}>{ShowShareBill ? `selected` : `select`}</Button>
+        <Button onClick={() => HandleSelectedFriend(data)}>{isSelected ? "Close" : "Select"}</Button>
     </li>
 }
