@@ -28,6 +28,12 @@ export default function App() {
   const [NewFriend, setNewFriend] = useState(initialFriends);
   const [Image, SetImage] = useState("https://i.pravatar.cc/48");
   const [FriendName, SetFriendName] = useState("");
+  function handleSubmit(value) {
+    console.log(value);
+    setNewFriend(Friends => Friends.map(friend => friend.id === SelectedFriend.id ?
+      { ...friend, balance: friend.balance + value } : friend))
+    SetSelectedFriend(null);
+  }
   return <div className="app">
     <Navbar
       ShowAddFriend={ShowAddFriend}
@@ -41,7 +47,11 @@ export default function App() {
       SelectedFriend={SelectedFriend}
       OnHandleSelectedFriend={SetSelectedFriend}
     />
-    {SelectedFriend && <FormSplitBill SelectedFriend={SelectedFriend} />}
+    {SelectedFriend && <FormSplitBill
+      SelectedFriend={SelectedFriend}
+      onhandleSubmit={handleSubmit}
+    />}
   </div>
+
 };
 
